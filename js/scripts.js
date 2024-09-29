@@ -34,6 +34,34 @@ window.addEventListener("resize", function() {
   }
 });
 
+// Función Ver Más
+function verMas(genero) {
+    // Guardar el género en localStorage
+    localStorage.setItem('generoSeleccionado', genero);
+
+    // Redirigir a la página de libros
+    window.location.href = 'libros.html';
+}
+
+// Asegurarse de que la función verMas esté disponible globalmente
+window.verMas = verMas;
+
+        // Recuperar el género seleccionado desde localStorage
+        const generoSeleccionado = localStorage.getItem('generoSeleccionado');
+
+        // Mostrar el título del género
+        document.getElementById('titulo-genero').textContent = 'Libros de ' + generoSeleccionado;
+
+        // Generar la lista de libros
+        const listaLibros = librosPorGenero[generoSeleccionado] || [];
+        const listaElement = document.getElementById('lista-libros');
+
+        listaLibros.forEach(libro => {
+            const li = document.createElement('li');
+            li.textContent = libro;
+            listaElement.appendChild(li);
+        });
+
 // Biblioteca
 document.addEventListener("DOMContentLoaded", () => {
   const bookTableBody = document.getElementById("bookTableBody");
