@@ -384,7 +384,7 @@ nav ul li a:hover{
   top: 0;
   left: 0;
   backface-visibility: hidden; /*Muestra la parte de adelante y oculta la de atras*/
-  transform-style: preserve-3d;
+  transform-style: preserve-3d; /*Da un efecto 3d a los texto cuando giran las cards*/
   border-radius: 20px;
 }
 
@@ -402,7 +402,7 @@ nav ul li a:hover{
   text-align: center;
   align-items: center;
   justify-content: center;
-  transform: translateZ(60px);
+  transform: translateZ(60px); /*Para que el titulo de la card se vea y gire con la imagen*/
 }
 
 .bg{
@@ -416,7 +416,7 @@ nav ul li a:hover{
 }
 
 .body__card_back{
-  padding: 40px;
+  padding: 70px;
   text-align: center;
   transform: translateZ(60px);
 }
@@ -443,7 +443,131 @@ nav ul li a:hover{
   box-shadow: #fb00ff;
 }
 
+/* Estilos para la página de libros */
+.libro-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(20px);
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
 
+.libro-form h2 {
+  margin-bottom: 20px;
+  color: #4B0082;
+  text-align: center;
+}
+
+.libro-form input[type="text"],
+.libro-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.libro-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.libro-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #EE03F1;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.libro-form button:hover {
+  background-color: #D102D1;
+}
+
+.lista-libros-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.lista-libros-container h2 {
+  margin-bottom: 20px;
+  color: #4B0082;
+  text-align: center;
+}
+
+#lista-libros {
+  list-style-type: none;
+  padding: 0;
+}
+
+#lista-libros li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+#lista-libros li:last-child {
+  border-bottom: none;
+}
+
+.libro-info {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.libro-info h3 {
+  margin: 0 0 10px 0;
+  color: #4B0082;
+}
+
+.libro-acciones {
+  display: flex;
+  flex-direction: column;
+}
+
+.libro-acciones button {
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.libro-acciones button:hover {
+  opacity: 0.7;
+}
+
+.libro-acciones .fa-check {
+  color: #4CAF50;
+}
+
+.libro-acciones .fa-trash {
+  color: #f44336;
+}
+
+.libro-acciones .fa-edit {
+  color: #2196F3;
+}
+
+.tachado {
+  text-decoration: line-through;
+  color: #888;
+}
 
 
 /*AQUI COMIENZA EL FOOTER*/
