@@ -123,3 +123,128 @@
     <script src="js/libros.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Personal - Listado de Libros</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/6a24b78ccb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header id="header">  
+        <div class="container__header">
+            <div class="logo">
+                <img src="/images/golden-lc.png" alt="">
+                <a href="index.html"></a>
+            </div>
+            <div class="container__nav">
+                <nav class="nav-bar" id="nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="bibliotecas.html">Bibliotecas</a></li>
+                        <li><a href="favoritos.html">Favoritos</a></li>
+                        <li><a href="sagas.html">Sagas</a></li>
+                        <li><a href="autores.html">Autores</a></li>
+                        <li><a href="asiazone.html">Asia-Zone</a></li>
+                        <div class="user-icon">
+                            <a href="./Login-Register/index.php">
+                                <img src="/images/user_gris.png" alt="Icono de Usuario">
+                            </a>
+                        </div>
+                    </ul>
+                </nav>  
+                <div class="btn__menu" id="btn_menu"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container__all" id="container_all">
+        <div class="cover">
+            <div class="bg_color"></div>
+            <div class="wave w1"></div>
+            <div class="wave w2"></div>
+
+            <div class="container__cover">
+                <div class="container__info">
+                    <h1>LIBROS DE</h1>
+                    <h2 id="genero-nombre"></h2>
+                    <p><br>Para explorar y gestionar la colección de libros de este género. <br><br><br><br><br><br> </p>
+                </div>
+                <div class="container__vector">
+                  <img src="images/undraw_reading_time_re_phf7.svg" alt="">
+              </div>
+            </div>
+        </div>
+
+        <main>
+            <div class="libro-form">
+                <h2>Agregar Nuevo Libro</h2>
+                <form id="libro-form">
+                    <input type="text" id="titulo" placeholder="Título del libro" required>
+                    <input type="text" id="autor" placeholder="Autor del libro" required>
+                    <textarea id="resumen" placeholder="Resumen del libro" required></textarea>
+                    <button type="submit">Agregar Libro</button>
+                </form>
+            </div>
+
+            <div class="lista-libros-container">
+                <h2>Libros en este género</h2>
+                <ul id="lista-libros"></ul>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container__footer">
+                <div class="box__footer">
+                    <div class="logo">
+                        <img src="images/golden-liz carolina.png" alt="">
+                    </div>
+                    <div class="terms">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum reiciendis et quasi aut facere vitae vero. Inventore, minus ab voluptate modi repellat, pariatur tempora quisquam, debitis facilis explicabo voluptatem.</p>
+                    </div>
+                </div>
+                <div class="box__footer">
+                    <h2>Menu</h2>
+                    <a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a>
+                    <a href="autores.html"><i class="fa-solid fa-chevron-right"></i> Autores</a>
+                    <a href="favoritos.html"><i class="fa-solid fa-chevron-right"></i> Favoritos</a>
+                    <a href="#"><i class="fa-solid fa-chevron-right"></i> Leyendo</a>
+                    <a href="#"><i class="fa-solid fa-chevron-right"></i> Pendientes</a>
+                    <a href="#"><i class="fa-solid fa-chevron-right"></i> Terminados</a>
+                </div>
+                <div class="box__footer">
+                    <h2>Categorias</h2>
+                    <a href="#"><i class="fa-solid fa-chevron-right"></i> Romanaces/Fantasias</a>
+                    <a href="#"><i class="fa-solid fa-chevron-right"></i> Reencarnaciones</a>
+                    <a href="#"><i class="fa-solid fa-chevron-right"></i> Epocas</a>
+                    <a href="#"><i class="fa-solid fa-chevron-right"></i> Novelas Web/Ligera</a>
+                    <a href="#"><i class="fa-solid fa-chevron-right"></i> Mangas/Manhua/Manhwa</a>
+                    <a href="#"><i class="fa-solid fa-chevron-right"></i> Fanfiction/Wattpad</a> 
+                </div>
+                <div class="box__footer">
+                    <h2>Contacts</h2>
+                    <a href="#"><i class="fa-solid fa-location-dot"></i> CABA, Argentina</a>
+                    <a href="#"><i class="fa-solid fa-mobile-screen-button"></i> +1529-000-0000</a>
+                    <a href="#"><i class="fa-regular fa-envelope"></i> <span class="__cf_email__" data-cfemail="375a5e555e555b5e5843525456475245445859565b77505a565e5b1954585a">[email&#160;protected]</span></a>
+                    <a href="#"><i class="fa-solid fa-globe"></i> www.mibibliotecapers.com.ar</a>
+                </div>
+            </div>
+            <div class="footer-social social-icon">
+                <a href="https://web.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://ar.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <div class="box__copyrigh">
+                <hr>
+                <p>Copyright &copy;2024: Designed by <span class="designer"><b></b>LC</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/libros.js"></script>
+</body>
+</html>
