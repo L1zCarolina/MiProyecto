@@ -39,7 +39,7 @@ function verMas(genero) {
     // Guardar el género en localStorage
     localStorage.setItem('generoSeleccionado', genero);
 
-    // Redirigir a la página de libros
+    // Redirigir a la página de libros(antes genero.html)
     window.location.href = 'libros.html';
 }
 

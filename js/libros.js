@@ -1,94 +1,95 @@
+// libros.js
 document.addEventListener('DOMContentLoaded', () => {
   const generoNombre = document.getElementById('genero-nombre');
-  const listaLibros = document.getElementById('lista-libros');
-  const libroForm = document.getElementById('libro-form');
-  const tituloInput = document.getElementById('titulo');
-  const autorInput = document.getElementById('autor');
-  const resumenInput = document.getElementById('resumen');
+  const librosContainer = document.getElementById('libros-container');
 
-  // Recuperar el género seleccionado
-  const generoSeleccionado = localStorage.getItem('generoSeleccionado') || 'Desconocido';
+  let generoSeleccionado = localStorage.getItem('generoSeleccionado') || 'Desconocido';
   generoNombre.textContent = generoSeleccionado;
 
-  // Cargar libros del localStorage
   let libros = JSON.parse(localStorage.getItem(`libros_${generoSeleccionado}`)) || [];
 
-  // Función para renderizar la lista de libros
   function renderizarLibros() {
-      listaLibros.innerHTML = '';
+      librosContainer.innerHTML = '';
       if (libros.length === 0) {
-          listaLibros.innerHTML = '<li>No hay libros en este género todavía.</li>';
+          librosContainer.innerHTML = '<p>No hay libros en este género todavía.</p>';
       } else {
           libros.forEach((libro, index) => {
-              const li = document.createElement('li');
-              li.innerHTML = `
-                  <div class="libro-info ${libro.tachado ? 'tachado' : ''}">
-                      <h3>${libro.titulo}</h3>
-                      <p><strong>Autor:</strong> ${libro.autor}</p>
-                      <p><strong>Resumen:</strong> ${libro.resumen}</p>
+              const libroElement = document.createElement('div');
+              libroElement.className = 'card';
+              libroElement.innerHTML = `
+                  <div class="cover__card">
+                      <img src="${libro.imagen || '/placeholder.svg'}" alt="${libro.titulo}">
                   </div>
-                  <div class="libro-acciones">
-                      <button onclick="editarLibro(${index})"><i class="fas fa-edit"></i></button>
-                      <button onclick="tacharLibro(${index})"><i class="fas fa-check"></i></button>
-                      <button onclick="eliminarLibro(${index})"><i class="fas fa-trash"></i></button>
+                  <h2>${libro.titulo}</h2>
+                  <p>${libro.resumen.substring(0, 100)}...</p>
+                  <hr>
+                  <div class="footer__card">
+                      <h3 class="user__name">${libro.autor}</h3>
+                      <i>Añadido el ${new Date().toLocaleDateString()}</i>
                   </div>
               `;
-              listaLibros.appendChild(li);
+              libroElement.addEventListener('click', () => verDetalles(index));
+              librosContainer.appendChild(libroElement);
           });
       }
   }
 
-  // Función para agregar un nuevo libro
-  function agregarLibro(titulo, autor, resumen) {
-      libros.push({ titulo, autor, resumen, tachado: false });
-      localStorage.setItem(`libros_${generoSeleccionado}`, JSON.stringify(libros));
-      renderizarLibros();
-  }
-
-  // Función para eliminar un libro
-  window.eliminarLibro = function(index) {
-      libros.splice(index, 1);
-      localStorage.setItem(`libros_${generoSeleccionado}`, JSON.stringify(libros));
-      renderizarLibros();
-  }
-
-  // Función para tachar un libro
-  window.tacharLibro = function(index) {
-      libros[index].tachado = !libros[index].tachado;
-      localStorage.setItem(`libros_${generoSeleccionado}`, JSON.stringify(libros));
-      renderizarLibros();
-  }
-
-  // Función para editar un libro
-  window.editarLibro = function(index) {
+  function verDetalles(index) {
       const libro = libros[index];
-      const nuevoTitulo = prompt('Editar título:', libro.titulo);
-      const nuevoAutor = prompt('Editar autor:', libro.autor);
-      const nuevoResumen = prompt('Editar resumen:', libro.resumen);
-      
-      if (nuevoTitulo !== null && nuevoAutor !== null && nuevoResumen !== null) {
-          libro.titulo = nuevoTitulo.trim();
-          libro.autor = nuevoAutor.trim();
-          libro.resumen = nuevoResumen.trim();
-          localStorage.setItem(`libros_${generoSeleccionado}`, JSON.stringify(libros));
-          renderizarLibros();
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = `
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>${libro.titulo}</h2>
+              <p><strong>Autor:</strong> ${libro.autor}</p>
+              <img src="${libro.imagen || '/placeholder.svg'}" alt="${libro.titulo}" style="max-width: 200px; margin: 10px 0;">
+              <p>${libro.resumen}</p>
+          </div>
+      `;
+      document.body.appendChild(modal);
+
+      const closeBtn = modal.querySelector('.close');
+      closeBtn.onclick = function() {
+          modal.style.display = "none";
       }
+
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+
+      modal.style.display = "block";
   }
 
-  // Event listener para el formulario de agregar libro
-  libroForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const titulo = tituloInput.value.trim();
-      const autor = autorInput.value.trim();
-      const resumen = resumenInput.value.trim();
-      if (titulo && autor && resumen) {
-          agregarLibro(titulo, autor, resumen);
-          tituloInput.value = '';
-          autorInput.value = '';
-          resumenInput.value = '';
-      }
+  generoNombre.addEventListener('click', () => {
+      const generos = ['Romanaces', 'Fantasias', 'Reencarnaciones', 'Epocas', 'Novelas Web/Ligera', 'Mangas', 'Manhua', 'Manhwa', 'Fanfiction/Wattpad'];
+      const selectElement = document.createElement('select');
+      selectElement.className = 'genero-select';
+      generos.forEach(genero => {
+          const option = document.createElement('option');
+          option.value = genero;
+          option.textContent = genero;
+          if (genero === generoSeleccionado) {
+              option.selected = true;
+          }
+          selectElement.appendChild(option);
+      });
+
+      generoNombre.innerHTML = '';
+      generoNombre.appendChild(selectElement);
+
+      selectElement.addEventListener('change', (e) => {
+          generoSeleccionado = e.target.value;
+          localStorage.setItem('generoSeleccionado', generoSeleccionado);
+          generoNombre.textContent = generoSeleccionado;
+          libros = JSON.parse(localStorage.getItem(`libros_${generoSeleccionado}`)) || [];
+          renderizarLibros();
+      });
+
+      selectElement.focus();
   });
 
-  // Renderizar libros al cargar la página
   renderizarLibros();
 });

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca Personal - Libros</title>
+    <title>Biblioteca Personal - Administrar Libros</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/libros.css">
     <script src="https://kit.fontawesome.com/c499d04190.js" crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
 </head>
 <body>
     <header id="header">  
@@ -44,26 +44,40 @@
 
             <div class="container__cover">
                 <div class="container__info">
-                    <h1>Libros de</h1>
+                    <h1>LISTAS DE</h1>
                     <h2 id="genero-nombre" class="genero-editable"></h2>
-                    <p>Explora nuestra colección de libros en este género. Descubre nuevas historias y sumérgete en mundos fascinantes.</p>
-                    <input type="button" value="Administrar Libros" onclick="window.location.href='listas.html'" class="btn-principal">
+                    <p>Para explorar y gestionar la colección de libros de este género.</p>
+                    <input type="button" value="Volver al Inicio" onclick="window.location.href='index.html'" class="btn-principal">
+                    <input type="button" value="Ver Libros" onclick="window.location.href='libros.html'" class="btn-principal">
                 </div>
                 <div class="container__vector">
-                    <img src="images/undraw_reading_time_re_phf7.svg" alt="Lectura">
+                    <img src="images/undraw_reading_time_re_phf7.svg" alt="">
                 </div>
             </div>
         </div>
 
         <main>
-            <div class="container__cards">
-                <!-- <div class="container__background-triangle">
-                    <div class="triangle triangle1"></div>
-                    <div class="triangle triangle2"></div>
-                    <div class="triangle triangle3"></div>
-                </div> -->
-                <div id="libros-container" class="container__cards">
-                    <!-- Los libros se cargarán aquí dinámicamente -->
+            <div class="admin-container">
+                <div class="libro-form">
+                    <h2>Agregar Nuevo Libro</h2>
+                    <form id="libro-form">
+                        <input type="text" id="titulo" placeholder="Título del libro" required>
+                        <input type="text" id="autor" placeholder="Autor del libro" required>
+                        <textarea id="resumen" placeholder="Resumen del libro" required></textarea>
+                        <div class="imagen-opciones">
+                          <i class="fa-regular fa-folder-open"><input type="file" id="imagen-dispositivo" accept="image/*"></i>
+                            
+                            <!-- <button type="button" id="imagen-drive"><i class="fa-brands fa-google-drive"></i></button> -->
+                            <i class="fa-solid fa-link"></i>
+                            <input type="text" id="imagen-url" placeholder="">
+                        </div>
+                        <button type="submit">Agregar Libro</button>
+                    </form>
+                </div>
+
+                <div class="lista-libros-container">
+                    <h2>Libros en este género</h2>
+                    <ul id="lista-libros"></ul>
                 </div>
             </div>
         </main>
@@ -118,6 +132,6 @@
     </div>
 
     <script src="js/scripts.js"></script>
-    <script src="js/libros.js"></script>
+    <script src="js/listas.js"></script>
 </body>
 </html>
