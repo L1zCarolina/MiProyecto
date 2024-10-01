@@ -4,26 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Personal</title>
+    <!-- Enlace a la hoja de estilos CSS -->
     <link rel="stylesheet" href="/css/styles.css">
+    <!-- Enlace a la biblioteca de iconos de FontAwesome -->
     <script src="https://kit.fontawesome.com/c499d04190.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Encabezado principal -->
     <header id="header">  
         <div class="container__header">
+            <!-- Logo de la página -->
             <div class="logo">
                 <img src="/images/golden-lc.png" alt="">
                 <a href="index.html"></a>
             </div>
+            <!-- Contenedor de navegación -->
             <div class="container__nav">
                 <nav class="nav-bar" id="nav">
                     <ul>
+                        <!-- Enlaces de navegación -->
                         <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="bibliotecas.html">Bibliotecas</a></li>
                         <li><a href="favoritos.html"> Favoritos</a></li>
                         <li><a href="sagas.html"> Sagas</a></li>
                         <li><a href="autores.html"> Autores</a></li>
                         <li><a href="asiazone.html"> Asia-Zone</a></li>
-                        <!--<li><a href="registro.html">Registro/Iniciar Sesión</a></li>-->
+                        <!-- Icono de usuario -->
                         <div class="user-icon">
                             <a href="./Login-Register/index.php">
                                 <img src="/images/user_gris.png" alt="Icono de Usuario">
@@ -31,13 +37,16 @@
                         </div>
                     </ul>
                 </nav>  
+                <!-- Botón de menú para vista móvil -->
                 <div class="btn__menu" id="btn_menu"><i class="fas fa-bars"></i></div>
             </div>
         </div>
     </header>
 
+    <!-- Contenedor principal -->
     <div class="container__all" id="container_all">
 
+        <!-- Sección de portada -->
         <div class="cover">
 
             <!--INICIO WAVE HEADER-->
@@ -50,6 +59,7 @@
 
             <!--FINAL WAVE HEADER-->
 
+            <!-- Contenedor con información principal -->
             <div class="container__cover">
 
                 <div class="container__info">
@@ -61,6 +71,7 @@
                     <input type="button" value="Empezar">
                 </div>
 
+                <!-- Imagen relacionada con la lectura -->
                 <div class="container__vector">
                     <img src="images/undraw_reading_time_re_phf7.svg" alt="">
                 </div>
@@ -70,17 +81,18 @@
         </div>
 
         <!-- Tarjetas con Efecto Flip en 3D -->
-
         <main>
-
+            <!-- Cada tarjeta representa un género literario -->
                 <div class="card__father">
                     <div class="card">
+                        <!-- Frente de la tarjeta con imagen y título -->
                         <div class="card__front" style="background-image: url(images/Fantasía.jpeg);">
                             <div class="bg"></div>
                             <div class="body__card_front">
                                 <h1>Romances</h1>
                             </div>
                         </div>
+                        <!-- Parte trasera de la tarjeta con descripción y botón -->
                         <div class="card__back">
                             <div class="body__card_back">
                                 <p>Libros llenas de emociones, donde el amor florece entre personajes únicos, enfrentando retos y alegrías en su búsqueda de felicidad y conexión.</p>
@@ -90,6 +102,7 @@
                     </div>
                 </div>
 
+            <!-- Repetición de la estructura de tarjetas para otros géneros -->
                 <div class="card__father">
                     <div class="card">
                         <div class="card__front" style="background-image: url(images/reencarnacion.jpg);">
