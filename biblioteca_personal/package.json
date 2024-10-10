@@ -1,0 +1,22 @@
+{
+  "name": "biblioteca_personal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon --inspect index.js",
+    "watch": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "LCF",
+  "license": "MIT",
+  "description": "Biblioteca Personal con Node Express",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mysql2": "^3.11.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
